@@ -3,5 +3,5 @@ extends layout
 block content
   h1 Services
   ul
-    each service, i in services
-      li #{service.username},#{service.description}
+    each usr, i in user
+      li #{usr.id}  #{usr.name}

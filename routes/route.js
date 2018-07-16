@@ -2,12 +2,12 @@ var faker = require("faker");
 
 var cassandra = require("cassandra-driver");
 
-var client = new cassandra.Client({contactPoints : ['127.0.0.1']});
+var client = new cassandra.Client({contactPoints : ['db']});
 client.connect(function (err, result) {
     console.log('index  : casssandra connected');
 });
 
-var getAllServices = 'select * from services_ks.services';
+var getAllServices = 'select * from account.user';
 
 var appRouter = function (app) {
 
@@ -57,7 +57,7 @@ var appRouter = function (app) {
                 }
                 else {
                     res.render('index',{
-                        services : result.rows
+                        user : result.rows
                     });
                 }
             });
